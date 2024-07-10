@@ -6,16 +6,13 @@ from torchvision import models, transforms
 from datasets import load_dataset
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from tqdm import tqdm
+from PIL import Image
 
 # Ensure proper encoding for output
 import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-
-# Load dataset
-dataset = load_dataset('Falah/Alzheimer_MRI', split='train')
 
 # Mapping labels to their descriptions
 label_map = {
@@ -46,12 +43,26 @@ def preprocess_function(example):
     
     return {'image': image, 'label': example['label']}
 
-# Apply preprocessing to the dataset
-dataset = dataset.map(preprocess_function)
+# Load dataset
+full_dataset = load_dataset('Falah/Alzheimer_MRI', split='train')
 
-# Split the dataset
-train_val_dataset, test_dataset = train_test_split(dataset, test_size=0.2, random_state=42)
-train_dataset, val_dataset = train_test_split(train_val_dataset, test_size=0.2, random_state=42)
+# Define the splits
+train_testvalid = full_dataset.train_test_split(test_size=0.3, seed=42)
+test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+
+train_dataset = train_testvalid['train']
+val_dataset = test_valid['train']
+test_dataset = test_valid['test']
+
+# Apply preprocessing to each split
+train_dataset = train_dataset.map(preprocess_function)
+val_dataset = val_dataset.map(preprocess_function)
+test_dataset = test_dataset.map(preprocess_function)
+
+# Convert to PyTorch datasets
+train_dataset.set_format(type='torch', columns=['image', 'label'])
+val_dataset.set_format(type='torch', columns=['image', 'label'])
+test_dataset.set_format(type='torch', columns=['image', 'label'])
 
 # Create DataLoaders
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
@@ -78,8 +89,8 @@ for epoch in range(num_epochs):
     train_total = 0
     
     for batch in tqdm(train_loader, desc=f"Epoch {epoch+1}/{num_epochs}"):
-        images = torch.stack(batch['image']).to(device)
-        labels = torch.tensor(batch['label']).to(device)
+        images = batch['image'].to(device)
+        labels = batch['label'].to(device)
         
         optimizer.zero_grad()
         outputs = model(images)
@@ -102,8 +113,8 @@ for epoch in range(num_epochs):
     
     with torch.no_grad():
         for batch in val_loader:
-            images = torch.stack(batch['image']).to(device)
-            labels = torch.tensor(batch['label']).to(device)
+            images = batch['image'].to(device)
+            labels = batch['label'].to(device)
             
             outputs = model(images)
             loss = criterion(outputs, labels)
@@ -130,8 +141,8 @@ test_total = 0
 
 with torch.no_grad():
     for batch in tqdm(test_loader, desc="Testing"):
-        images = torch.stack(batch['image']).to(device)
-        labels = torch.tensor(batch['label']).to(device)
+        images = batch['image'].to(device)
+        labels = batch['label'].to(device)
         
         outputs = model(images)
         loss = criterion(outputs, labels)
