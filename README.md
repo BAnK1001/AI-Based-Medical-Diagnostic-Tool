@@ -36,16 +36,13 @@ Dự án này nhằm mục đích xây dựng một công cụ hỗ trợ chẩn
 
 ## Dữ liệu
 
-Bộ dữ liệu được sử dụng trong dự án này là:
+**Alzheimer MRI Dataset**
 
-@dataset{alzheimer_mri_dataset,
-author = {Falah.G.Salieh},
-title = {Alzheimer MRI Dataset},
-year = {2023},
-publisher = {Hugging Face},
-version = {1.0},
-url = {https://huggingface.co/datasets/Falah/Alzheimer_MRI}
-}
+- **Tác giả:** Falah.G.Salieh
+- **Năm:** 2023
+- **Phiên bản:** 1.0
+- **Nguồn:** Hugging Face
+- **URL:** https://huggingface.co/datasets/Falah/Alzheimer_MRI
 
 ## Liên hệ
 
