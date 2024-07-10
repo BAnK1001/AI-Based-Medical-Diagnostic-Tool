@@ -34,12 +34,19 @@ Dự án này nhằm mục đích xây dựng một công cụ hỗ trợ chẩn
 - Thư viện xử lý ảnh: OpenCV, Pillow
 - Thư viện khác: NumPy, Matplotlib, Hugging Face Datasets
 
-## Thành viên nhóm
+## Dữ liệu
 
-- [Tên thành viên 1]
-- [Tên thành viên 2]
-- ...
+Bộ dữ liệu được sử dụng trong dự án này là:
+
+@dataset{alzheimer_mri_dataset,
+author = {Falah.G.Salieh},
+title = {Alzheimer MRI Dataset},
+year = {2023},
+publisher = {Hugging Face},
+version = {1.0},
+url = {https://huggingface.co/datasets/Falah/Alzheimer_MRI}
+}
 
 ## Liên hệ
 
-Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, vui lòng liên hệ với chúng tôi qua email: [Địa chỉ email].
+Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, vui lòng liên hệ với chúng tôi qua email: caoan339@gmail.com.
