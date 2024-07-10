@@ -1,49 +1,49 @@
-# Công cụ Hỗ trợ Chẩn đoán Bệnh Alzheimer từ Hình ảnh MRI
+# AI-Based Alzheimer's Disease Diagnostic Tool from MRI Images
 
-## Giới thiệu
+## Introduction
 
-Dự án này nhằm mục đích xây dựng một công cụ hỗ trợ chẩn đoán bệnh Alzheimer từ hình ảnh MRI sử dụng các thuật toán trí tuệ nhân tạo (AI). Công cụ này sẽ giúp các bác sĩ và chuyên gia y tế phân tích hình ảnh MRI não bộ một cách nhanh chóng và chính xác hơn, từ đó đưa ra chẩn đoán sớm và chính xác hơn về bệnh Alzheimer.
+This project aims to develop an AI-powered tool to assist in the diagnosis of Alzheimer's disease from MRI images. The tool will help doctors and medical professionals analyze brain MRI scans more quickly and accurately, leading to earlier and more precise diagnoses of Alzheimer's.
 
-## Tiến độ dự án
+## Project Progress
 
-### Giai đoạn 1: Khám phá và Tiền xử lý Dữ liệu (Hoàn thành)
+### Phase 1: Data Exploration and Preprocessing (Completed)
 
-- Tải và khám phá bộ dữ liệu "Alzheimer MRI Disease Classification Dataset" từ Kaggle.
-- Thực hiện tiền xử lý dữ liệu:
-  - Chuyển đổi ảnh sang mảng NumPy.
-  - Thay đổi kích thước ảnh về 224x224 pixel.
-  - Chuẩn hóa giá trị pixel.
+- Loaded and explored the "Alzheimer MRI Disease Classification Dataset" from Kaggle.
+- Preprocessed the data:
+  - Converted images to NumPy arrays.
+  - Resized images to 224x224 pixels.
+  - Normalized pixel values.
 
-### Giai đoạn 2: Xây dựng và Huấn luyện Mô hình (Đang thực hiện)
+### Phase 2: Model Building and Training (In Progress)
 
-- Nghiên cứu và lựa chọn mô hình học sâu phù hợp (ví dụ: CNNs, ResNet, EfficientNet).
-- Thực hiện transfer learning từ các mô hình đã được huấn luyện trước.
-- Thiết kế và huấn luyện mô hình trên dữ liệu đã tiền xử lý.
-- Đánh giá hiệu suất mô hình trên tập dữ liệu kiểm tra.
+- Researching and selecting suitable deep learning models (e.g., CNNs, ResNet, EfficientNet).
+- Implementing transfer learning from pre-trained models.
+- Designing and training the model on the preprocessed data.
+- Evaluating model performance on the test dataset.
 
-### Giai đoạn 3: Triển khai và Đánh giá Thực tế (Chưa thực hiện)
+### Phase 3: Deployment and Real-World Evaluation (Not Started)
 
-- Phát triển giao diện người dùng cho công cụ.
-- Triển khai và kiểm thử công cụ tại các cơ sở y tế.
-- Thu thập phản hồi và đánh giá hiệu quả thực tế của công cụ.
+- Developing a user interface for the tool.
+- Deploying and testing the tool in medical facilities.
+- Gathering feedback and evaluating the tool's real-world effectiveness.
 
-## Công nghệ sử dụng
+## Technologies Used
 
-- Ngôn ngữ lập trình: Python
-- Thư viện học sâu: PyTorch hoặc TensorFlow/Keras
-- Thư viện xử lý ảnh: OpenCV, Pillow
-- Thư viện khác: NumPy, Matplotlib, Hugging Face Datasets
+- Programming Language: Python
+- Deep Learning Libraries: PyTorch or TensorFlow/Keras
+- Image Processing Libraries: OpenCV, Pillow
+- Other Libraries: NumPy, Matplotlib, Hugging Face Datasets
 
-## Dữ liệu
+## Dataset
 
 **Alzheimer MRI Dataset**
 
-- **Tác giả:** Falah.G.Salieh
-- **Năm:** 2023
-- **Phiên bản:** 1.0
-- **Nguồn:** Hugging Face
+- **Author:** Falah.G.Salieh
+- **Year:** 2023
+- **Version:** 1.0
+- **Source:** Hugging Face
 - **URL:** https://huggingface.co/datasets/Falah/Alzheimer_MRI
 
-## Liên hệ
+## Contact
 
-Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, vui lòng liên hệ với chúng tôi qua email: caoan339@gmail.com.
+For any questions or feedback, please contact us at: [Email Address]
